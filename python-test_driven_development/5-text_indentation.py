@@ -9,7 +9,7 @@ def text_indentation(text):
     """Function that prints 2 new lines after ".?:" characters.
 
     Args:
-        text (str): Input string.
+        text: input string
 
     Raises:
         TypeError: If text is not a string.
@@ -26,4 +26,4 @@ def text_indentation(text):
             i = i.strip()
             s = i + d if s == "" else s + "\n\n" + i + d
 
-    print(s[:-1], end="")
+    print(s, end="")
