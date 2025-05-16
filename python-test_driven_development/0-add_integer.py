@@ -8,6 +8,7 @@ Functions:
     raises TypeError if arguments are not int or float.
 """
 
+
 def add_integer(a, b=98):
     """
     Adds two integers or floats (casts floats to int before addition).
