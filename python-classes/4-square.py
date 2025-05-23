@@ -1,11 +1,14 @@
 #!/usr/bin/python3
-"""Module that defines a Square class with size validation, area calculation,
-and getter/setter methods for controlled access to the size attribute.
+"""Module that defines a Square class with size validation, area
+calculation, and getter/setter methods for controlled access to the
+size attribute.
 """
 
 
 class Square:
-    """A class that defines a square by its size and provides area calculation."""
+    """A class that defines a square by its size and provides area
+    calculation.
+    """
 
     def __init__(self, size=0):
         """Initialize a new Square instance with an optional size.
