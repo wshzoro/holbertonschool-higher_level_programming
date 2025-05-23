@@ -86,11 +86,11 @@ class Rectangle:
         return "\n".join(lines)
 
     def __repr__(self):
-        """Return a string representation that can recreate the instance."""
+        """Return a string representation to recreate the instance."""
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Print a message when an instance is deleted and decrement counter."""
+        """Print a message when an instance is deleted."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
@@ -103,7 +103,7 @@ class Rectangle:
             rect_2 (Rectangle): Second rectangle.
 
         Raises:
-            TypeError: If either rect_1 or rect_2 is not a Rectangle instance.
+            TypeError: If either rect_1 or rect_2 is not a Rectangle.
 
         Returns:
             Rectangle: The bigger or equal rectangle.
