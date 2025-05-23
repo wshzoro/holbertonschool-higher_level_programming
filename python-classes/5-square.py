@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a Square class with size,
-area computation, and printing capability using '#' characters.
-"""
-
+"""Module that defines a Square class with size, area computation, and printing."""
 
 class Square:
     """Represents a square with a controllable size."""
@@ -60,6 +57,7 @@ class Square:
         """
         if self.__size == 0:
             print()
-        else:
-            for _ in range(self.__size):
-                print("#" * self.__size)
+            return
+
+        for _ in range(self.__size):
+            print("#" * self.__size)
