@@ -9,7 +9,12 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle instance."""
+        """Initialize a new Rectangle instance.
+
+        Args:
+            width (int): Width of the rectangle.
+            height (int): Height of the rectangle.
+        """
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -21,7 +26,15 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        """Set the width with validation."""
+        """Set the width with validation.
+
+        Args:
+            value (int): The width to set.
+
+        Raises:
+            TypeError: If value is not an int.
+            ValueError: If value is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -35,7 +48,15 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Set the height with validation."""
+        """Set the height with validation.
+
+        Args:
+            value (int): The height to set.
+
+        Raises:
+            TypeError: If value is not an int.
+            ValueError: If value is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -47,7 +68,11 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return the perimeter of the rectangle."""
+        """Return the perimeter of the rectangle.
+
+        Returns:
+            int: Perimeter or 0 if width or height is 0.
+        """
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
@@ -61,17 +86,28 @@ class Rectangle:
         return "\n".join(lines)
 
     def __repr__(self):
-        """Return a string representation that can recreate the instance."""
-        return f"Rectangle({self.__width}, {self.__height})"
+        """Return a string representation to recreate the instance."""
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Print a message when an instance is deleted and decrement counter."""
+        """Print a message when an instance is deleted."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Return the rectangle with the greater area (or rect_1 if equal)."""
+        """Return the rectangle with the greater area (rect_1 if equal).
+
+        Args:
+            rect_1 (Rectangle): First rectangle.
+            rect_2 (Rectangle): Second rectangle.
+
+        Raises:
+            TypeError: If either rect_1 or rect_2 is not a Rectangle instance.
+
+        Returns:
+            Rectangle: The rectangle with the bigger or equal area.
+        """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
