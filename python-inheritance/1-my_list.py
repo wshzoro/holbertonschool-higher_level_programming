@@ -7,7 +7,6 @@ and a method to print the list sorted without modifying it.
 
 
 class MyList(list):
-
     """
     Class that inherits from list, with a method to print the list sorted.
     """
