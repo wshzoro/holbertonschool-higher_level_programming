@@ -1,0 +1,16 @@
+>>> MyList = __import__('1-my_list').MyList
+
+>>> ma_liste = MyList()
+>>> ma_liste.append(5)
+>>> ma_liste.append(2)
+>>> ma_liste.append(4)
+>>> ma_liste.append(1)
+>>> ma_liste.append(3)
+>>> print(ma_liste)
+[5, 2, 4, 1, 3]
+
+>>> ma_liste.print_sorted()
+[1, 2, 3, 4, 5]
+
+>>> print(ma_liste)
+[5, 2, 4, 1, 3]
