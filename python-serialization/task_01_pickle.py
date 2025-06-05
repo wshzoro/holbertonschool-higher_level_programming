@@ -1,34 +1,67 @@
 #!/usr/bin/env python3
 """
-Module for basic serialization and deserialization of Python dictionaries.
+Module that defines a CustomObject class
+with methods to serialize and deserialize using pickle.
 """
 
-import json
+import pickle
 
 
-def serialize_and_save_to_file(data, filename):
+class CustomObject:
     """
-    Serialize a Python dictionary and save it to a JSON file.
-
-    Args:
-        data (dict): The dictionary to serialize.
-        filename (str): The name of the JSON file to save the data in.
-
-    If the file already exists, it will be overwritten.
+    A class representing a custom object with name, age, and is_student.
     """
-    with open(filename, 'w') as file:
-        json.dump(data, file)
 
+    def __init__(self, name, age, is_student):
+        """
+        Initialize a CustomObject instance.
 
-def load_and_deserialize(filename):
-    """
-    Load JSON data from a file and deserialize it into a Python dictionary.
+        Args:
+            name (str): The name of the person.
+            age (int): The age of the person.
+            is_student (bool): Whether the person is a student.
+        """
+        self.name = name
+        self.age = age
+        self.is_student = is_student
 
-    Args:
-        filename (str): The name of the JSON file to read from.
+    def display(self):
+        """
+        Display the attributes of the CustomObject.
+        """
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Is Student: {self.is_student}")
 
-    Returns:
-        dict: The deserialized dictionary.
-    """
-    with open(filename, 'r') as file:
-        return json.load(file)
+    def serialize(self, filename):
+        """
+        Serialize the current instance to a file using pickle.
+
+        Args:
+            filename (str): The name of the file to save the object.
+        """
+        try:
+            with open(filename, 'wb') as file:
+                pickle.dump(self, file)
+        except Exception:
+            pass  # Silently ignore exceptions as per instructions
+
+    @classmethod
+    def deserialize(cls, filename):
+        """
+        Deserialize an object from a pickle file.
+
+        Args:
+            filename (str): The name of the file to load the object from.
+
+        Returns:
+            CustomObject or None: The deserialized object,
+            or None if an error occurs.
+        """
+        try:
+            with open(filename, 'rb') as file:
+                obj = pickle.load(file)
+                if isinstance(obj, cls):
+                    return obj
+        except Exception:
+            return None
