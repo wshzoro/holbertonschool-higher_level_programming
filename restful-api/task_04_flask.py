@@ -4,16 +4,16 @@ app = Flask(__name__)
 users = {}
 
 @app.route('/')
-def home ():
-    return "Welcome to the Flask API", 200
+def home():
+    return jsonify({"message": "Welcome to the Flask API"}), 200
 
 @app.route('/status')
-def status ():
+def status():
     return jsonify({"status": "OK"}), 200
 
 @app.route('/data')
 def get_usernames():
-    return jsonify(users), 200
+    return jsonify(list(users.keys())), 200
 
 @app.route("/users/<username>")
 def get_user(username):
