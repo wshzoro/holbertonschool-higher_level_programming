@@ -19,7 +19,7 @@ def get_usernames():
 def get_user(username):
     user = user.get(username)
     if user:
-        return jsonify(user)
+        return jsonify(user), 200
     else:
         return jsonify({"error": "User not found"}), 404
     
