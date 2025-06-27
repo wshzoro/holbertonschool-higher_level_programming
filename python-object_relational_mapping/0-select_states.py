@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-import pymysql as MySQLdb
+import pymysql
+MySQLdb = pymysql
+
 import sys
 
 if __name__ == "__main__":
